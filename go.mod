@@ -1,3 +1,3 @@
-module github.org/gmzln/learninggo
+module github.org/gmzln/investment-calculator
 
 go 1.23.2
