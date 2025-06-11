@@ -9,18 +9,26 @@ func main() {
 	var expenses float64
 	var taxRate float64
 
-	fmt.Print("revenue: ")
+	// fmt.Print("revenue: ")
+	outputText("revenue: ")
 	fmt.Scan(&revenue)
-	fmt.Print("expenses: ")
+	outputText("expenses: ")
 	fmt.Scan(&expenses)
-	fmt.Print("tax rate: ")
+	outputText("taxrate: ")
 	fmt.Scan(&taxRate)
 
+	ebt, profit, ratio := calculate(revenue, expenses, taxRate)
+	fmt.Printf("ebt: %.1f\nprofit: %v\nratio: %.1f\n ", ebt, profit, ratio)
+}
+
+func outputText(text string) {
+	fmt.Print(text)
+}
+
+// (values + type) (return types)
+func calculate(revenue, expenses, taxRate float64) (float64, float64, float64) {
 	ebt := revenue - expenses
 	profit := ebt * (1 - taxRate/100)
 	ratio := ebt / profit
-
-	fmt.Println(ebt)
-	fmt.Println(profit)
-	fmt.Println(ratio)
+	return ebt, profit, ratio
 }
