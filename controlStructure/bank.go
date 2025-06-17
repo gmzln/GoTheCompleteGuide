@@ -1,0 +1,37 @@
+package main
+
+import "fmt"
+
+func main() {
+
+	var accountBalance = 1000.0
+
+	fmt.Println("Welcome to go bank!")
+	fmt.Println("what do you want to do?")
+	fmt.Println("1. Check the balance")
+	fmt.Println("2. Deposit money")
+	fmt.Println("3. Withdraw money")
+	fmt.Println("4. Exit")
+
+	var choice int
+	fmt.Print("Enter your choice: ")
+	fmt.Scan(&choice)
+
+	if choice == 1 {
+		fmt.Println("Your balance is: ", accountBalance)
+	} else if choice == 2 {
+		fmt.Print("Enter your deposit: ")
+		var depositAmount float64
+		fmt.Scan(&depositAmount)
+		accountBalance += depositAmount
+		fmt.Println("Your new balance is: ", accountBalance)
+	} else if choice == 3 {
+		fmt.Print("Enter the amount of your withdrawal: ")
+		var withdrawalAmount float64
+		fmt.Scan(&withdrawalAmount)
+		accountBalance -= withdrawalAmount
+		fmt.Println("Your new balance is: ", accountBalance)
+	} else {
+		fmt.Println("Thank you for using go bank. See you next time.")
+	}
+}
